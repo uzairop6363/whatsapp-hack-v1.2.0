@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>C9_TACTICAL_FINAL_V21</title><script src="https://cdn.tailwindcss.com"></script><style>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>C9_TACTICAL_FIXED</title><script src="https://cdn.tailwindcss.com"></script><style>
 :root{--red:#ff003c;--gold:#ffee00;--slate:#1e293b;--dark:#020617}
 body{background:var(--dark);color:#fff;font-family:sans-serif;height:100dvh;overflow:hidden;margin:0;display:flex;justify-content:center;align-items:center}
 .glow-bg{position:fixed;inset:-50%;background:radial-gradient(circle at 20% 30%,rgba(255,0,60,0.2) 0%,transparent 40%),radial-gradient(circle at 80% 70%,rgba(255,238,0,0.1) 0%,transparent 40%);filter:blur(100px);z-index:-1;animation:pB 12s infinite alternate}@keyframes pB{0%{transform:rotate(0deg) scale(1)}100%{transform:rotate(10deg) scale(1.1)}}
@@ -48,9 +48,13 @@ body{background:var(--dark);color:#fff;font-family:sans-serif;height:100dvh;over
 <div id="h-ft" class="footer-pro"></div>
 
 <script>
+// --- Direct Keys (Fixed) ---
+const MASTER_KEY = "c9uzair-whatsapp-hack-key-SkQwueMepfNAFDkwn";
+const RSA_START = "-----BEGIN RSA PRIVATE KEY-----";
+
 const _H = {
-    t1: "576861747341707020546f6f6c", // WhatsApp Tool
-    st: "4465763a20433920555a4952", // Dev: C9 UZAIR
+    t1: "576861747341707020546f6f6c", 
+    st: "4465763a20433920555a4952", 
     ph1: "544152474554204e554d424552", 
     ph2: "56494354494d204944", 
     b1: "434f4e4e45435420534552564552", 
@@ -67,9 +71,7 @@ const _H = {
     ex: "455849542053455353494f4e", 
     ft: "433920555a4952202f2f205748415453415050203033323231323837393736", 
     err1: "2623393838383b20494e56414c494420525341205349474e4154555245", 
-    err2: "2623393838383b2057524f4e472050524956415445204b4559", 
-    k: "6339757a69722d77686174736170702d6861636b2d6b65792d536b447775654d6570664e4146446b776e", 
-    rsa_m: "2d2d2d2d2d424547494e205253412050524956415445204b45592d2d2d2d2d"
+    err2: "2623393838383b2057524f4e472050524956415445204b4559"
 };
 
 function dH(h){let s='';for(let i=0;i<h.length;i+=2)s+=String.fromCharCode(parseInt(h.substr(i,2),16));return s}
@@ -97,16 +99,17 @@ window.onload=()=>{
 
 function triggerLoad(n){
     if(n===4){
-        // RSA Match - Ignore extra spaces/newlines
-        let rI = document.getElementById('rsa').value.trim();
-        if(!rI.includes(dH(_H.rsa_m))){showError(dH(_H.err1));return}
+        if(!document.getElementById('rsa').value.includes(RSA_START)){showError(dH(_H.err1));return}
     }
     if(n===5){
-        // Key Match - Direct Trim
-        let kI = document.getElementById('vip').value.trim();
-        if(kI !== dH(_H.k)){showError(dH(_H.err2));return}
+        // Precise String Comparison
+        let inputVal = document.getElementById('vip').value.trim();
+        if(inputVal !== MASTER_KEY){
+            showError(dH(_H.err2));
+            return;
+        }
     }
-    if(n===2&&!document.getElementById('t1').value)return;
+    if(n===2 && !document.getElementById('t1').value) return;
     const l=document.getElementById('global-loader');l.style.display='flex';
     setTimeout(()=>{l.style.display='none';nav(n);if(n===2)startScan()},1800);
 }

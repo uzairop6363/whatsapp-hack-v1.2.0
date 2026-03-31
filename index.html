@@ -1,22 +1,24 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>C9_TACTICAL_FIXED</title><script src="https://cdn.tailwindcss.com"></script><style>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>C9_TACTICAL_PRO_V22</title><script src="https://cdn.tailwindcss.com"></script><style>
 :root{--red:#ff003c;--gold:#ffee00;--slate:#1e293b;--dark:#020617}
 body{background:var(--dark);color:#fff;font-family:sans-serif;height:100dvh;overflow:hidden;margin:0;display:flex;justify-content:center;align-items:center}
 .glow-bg{position:fixed;inset:-50%;background:radial-gradient(circle at 20% 30%,rgba(255,0,60,0.2) 0%,transparent 40%),radial-gradient(circle at 80% 70%,rgba(255,238,0,0.1) 0%,transparent 40%);filter:blur(100px);z-index:-1;animation:pB 12s infinite alternate}@keyframes pB{0%{transform:rotate(0deg) scale(1)}100%{transform:rotate(10deg) scale(1.1)}}
 @keyframes bM{0%,100%{border-color:var(--red);box-shadow:0 0 20px rgba(255,0,60,0.3)}50%{border-color:var(--gold);box-shadow:0 0 20px rgba(255,238,0,0.3)}}
-#error-popup{position:fixed;top:20px;left:50%;transform:translateX(-50%) translateY(-150%);background:rgba(255,0,60,0.95);color:white;padding:15px 30px;border-radius:12px;border:2px solid var(--gold);font-weight:900;text-transform:uppercase;z-index:9999;transition:0.5s cubic-bezier(0.68,-0.55,0.27,1.55);box-shadow:0 0 30px rgba(255,0,60,0.8);opacity:0;pointer-events:none;white-space:nowrap}
-#error-popup.show{transform:translateX(-50%) translateY(0px);opacity:1;pointer-events:auto}
+#error-popup{position:fixed;top:20px;left:50%;transform:translateX(-50%) translateY(-150%);background:rgba(255,0,60,0.95);color:white;padding:15px 30px;border-radius:12px;border:2px solid var(--gold);font-weight:900;text-transform:uppercase;z-index:9999;transition:0.5s;box-shadow:0 0 30px rgba(255,0,60,0.8);opacity:0;pointer-events:none}
+#error-popup.show{transform:translateX(-50%) translateY(0px);opacity:1}
 #global-loader{position:fixed;inset:0;background:rgba(0,0,0,0.95);z-index:1000;display:none;flex-direction:column;justify-content:center;align-items:center;backdrop-filter:blur(15px)}
 .mini-spinner{width:60px;height:60px;border:4px solid transparent;border-top-color:var(--red);border-bottom-color:var(--gold);border-radius:50%;animation:spin 0.8s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
 .page{display:none;width:94%;max-width:440px;height:90dvh;position:relative;flex-direction:column}.active{display:flex!important;animation:fI 0.3s ease-out}@keyframes fI{from{opacity:0;transform:scale(0.98)}to{opacity:1;transform:scale(1)}}
 .card-main{background:rgba(15,23,42,0.9);border:3px solid;border-radius:25px;padding:25px;flex:1;display:flex;flex-direction:column;backdrop-filter:blur(20px);animation:bM 6s infinite linear}
 .n-input{background:rgba(255,255,255,0.05);border:2px solid var(--gold);padding:18px;border-radius:12px;color:#fff;font-size:18px;margin-bottom:15px;outline:none;text-align:center;font-weight:800;transition:all 0.3s ease;box-shadow:inset 0 0 10px rgba(0,0,0,0.5)}
-.n-input:focus{background:rgba(255,255,255,0.1);transform:translateY(-2px);box-shadow:0 10px 20px rgba(0,0,0,0.4),0 0 10px rgba(255,238,0,0.3);border-color:#fff}
 .n-btn{background:var(--red);color:#fff;padding:20px;border-radius:15px;font-weight:900;text-transform:uppercase;cursor:pointer;border:1px solid var(--gold);box-shadow:0 0 30px rgba(255,0,60,0.4);font-size:16px;transition:0.2s}.n-btn:active{transform:scale(0.96)}
-.circle{width:160px;height:160px;border:6px dashed var(--gold);border-radius:50%;animation:spin 4s linear infinite;display:flex;justify-content:center;align-items:center}
-#ptext{font-size:40px;font-weight:900;color:var(--gold)}
-.prof-logo{width:90px;height:90px;margin:0 auto 20px;position:relative}
-.prof-logo-inner{width:100%;height:100%;border-radius:50%;background:var(--dark);border:4px solid var(--gold);display:flex;justify-content:center;align-items:center;position:relative;z-index:1;box-shadow:0 0 15px rgba(255,238,0,0.5);animation:fL 4s infinite ease-in-out}.prof-logo-inner span{font-size:36px;font-weight:900;color:var(--gold)}@keyframes fL{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-.err-i{font-size:70px;color:#ff3333;margin-bottom:20px;animation:sh 0.5s infinite}@keyframes sh{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.circle{width:160px;height:160px;border:6px dashed var(--gold);border-radius:50%;animation:spin 4s linear infinite;display:flex;justify-content:center;align-items:center}#ptext{font-size:40px;font-weight:900;color:var(--gold)}
+/* TERMINAL DESIGN */
+#terminal{flex:1;background:#000;border-radius:15px;padding:15px;font-family:monospace;font-size:12px;overflow-y:auto;color:#0f0;line-height:1.4;border:1px solid #333}
+.term-line{margin-bottom:4px;display:block}
+.term-success{color:var(--gold);font-weight:900;font-size:16px;text-align:center;display:block;margin:15px 0;border:1px dashed var(--gold);padding:10px}
+/* ERROR BOX */
+.err-box{display:none;flex-direction:column;align-items:center;text-align:center;animation:fI 0.5s ease-in-out}
+.err-i{font-size:60px;color:#ff3333;margin-bottom:15px;animation:sh 0.5s infinite}@keyframes sh{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
 .footer-pro{position:fixed;bottom:0;width:100%;padding:10px;text-align:center;font-size:12px;font-weight:900;color:var(--gold);background:#000;z-index:100;border-top:1px solid var(--red)}
 </style></head><body>
 <div class="glow-bg"></div>
@@ -35,85 +37,95 @@ body{background:var(--dark);color:#fff;font-family:sans-serif;height:100dvh;over
 
 <div id="p3" class="page"><div class="card-main"><h2 id="h-r1" class="text-2xl font-black text-gold mb-6 uppercase text-center"></h2><textarea id="rsa" class="n-input h-52 w-full text-[10px] font-mono leading-tight"></textarea><button onclick="triggerLoad(4)" id="h-b2" class="n-btn mt-auto"></button></div></div>
 
-<div id="p4" class="page"><div class="card-main justify-center text-center"><div class="prof-logo"><div class="prof-logo-inner"><span>C9</span></div></div><h2 id="h-lk" class="text-xl font-black text-red-600 mb-6 uppercase leading-tight"></h2><input type="password" id="vip" class="n-input"><button onclick="triggerLoad(5)" id="h-b3" class="n-btn"></button></div></div>
+<div id="p4" class="page"><div class="card-main justify-center text-center"><div class="prof-logo" style="width:70px;height:70px;margin:0 auto 10px"><div class="prof-logo-inner"><span>C9</span></div></div><h2 id="h-lk" class="text-lg font-black text-red-600 mb-6 uppercase leading-tight"></h2><input type="password" id="vip" class="n-input"><button onclick="triggerLoad(5)" id="h-b3" class="n-btn"></button></div></div>
 
 <div id="p5" class="page">
-    <div class="card-main justify-center items-center text-center">
-        <div class="err-i">⚠️</div><h2 id="h-e1" class="text-3xl font-black text-red-600 uppercase mb-4"></h2>
-        <p id="h-e2" class="text-lg font-bold text-white leading-relaxed px-4"></p>
-        <button onclick="location.reload()" id="h-ex" class="n-btn w-full mt-10" style="background:#333;border-color:#666"></button>
+    <div class="card-main" id="final-card">
+        <div id="terminal"></div>
+        <div class="err-box" id="err-box">
+            <div class="err-i">⚠️</div>
+            <h2 id="h-e1" class="text-2xl font-black text-red-600 uppercase mb-2"></h2>
+            <p id="h-e2" class="text-sm font-bold text-white leading-relaxed"></p>
+            <button onclick="location.reload()" id="h-ex" class="n-btn w-full mt-6" style="background:#333;border-color:#666"></button>
+        </div>
     </div>
 </div>
 
 <div id="h-ft" class="footer-pro"></div>
 
 <script>
-// --- Direct Keys (Fixed) ---
 const MASTER_KEY = "c9uzair-whatsapp-hack-key-SkQwueMepfNAFDkwn";
 const RSA_START = "-----BEGIN RSA PRIVATE KEY-----";
-
 const _H = {
-    t1: "576861747341707020546f6f6c", 
-    st: "4465763a20433920555a4952", 
-    ph1: "544152474554204e554d424552", 
-    ph2: "56494354494d204944", 
-    b1: "434f4e4e45435420534552564552", 
-    sc: "4645544348494e4720415243484956452e2e2e", 
-    ld: "53796e63696e6720446174612e2e2e", 
-    r1: "456e74657220525341204b6579", 
-    ph3: "50415354452052534120424c4f434b", 
-    b2: "5645524946592050524f544f434f4c", 
-    lk: "506c6561736520456e7465722050726976617465204b6579203c62723e203c7370616e20636c6173733d22746578742d776869746520746578742d62617365223e4f72204275792049742046726f6d3c2f7370616e3e203c62723e203c7370616e20636c6173733d22746578742d676f6c64223e433920555a49522030333232313238373937363c2f7370616e3e", 
-    ph4: "50726976617465204b4559", 
-    b3: "556e6c6f636b204368617473", 
-    e1: "4143434553532044454e494544", 
-    e2: "594f555220444556494345204953204e4f5420524f4f5445442e3c62723e3c62723e3c7370616e20636c6173733d22746578742d677261792d34303020746578742d736d20757070657263617365223e44617461204d6972726f72696e67207265717569726573205375706572757365722028535529207065726d697373696f6e7320746f2062797061737320656e6372797074696f6e2e3c2f7370616e3e", 
-    ex: "455849542053455353494f4e", 
-    ft: "433920555a4952202f2f205748415453415050203033323231323837393736", 
-    err1: "2623393838383b20494e56414c494420525341205349474e4154555245", 
-    err2: "2623393838383b2057524f4e472050524956415445204b4559"
+    t1: "576861747341707020546f6f6c", st: "4465763a20433920555a4952", ph1: "544152474554204e554d424552", ph2: "56494354494d204944", b1: "434f4e4e45435420534552564552", sc: "4645544348494e4720415243484956452e2e2e", ld: "53796e63696e6720446174612e2e2e", r1: "456e74657220525341204b6579", ph3: "50415354452052534120424c4f434b", b2: "5645524946592050524f544f434f4c", lk: "506c6561736520456e7465722050726976617465204b6579203c62723e203c7370616e20636c6173733d22746578742d776869746520746578742d62617365223e4f72204275792049742046726f6d3c2f7370616e3e203c62723e203c7370616e20636c6173733d22746578742d676f6c64223e433920555a49522030333232313238373937363c2f7370616e3e", ph4: "50726976617465204b4559", b3: "556e6c6f636b204368617473", e1: "4143434553532044454e494544", e2: "594f555220444556494345204953204e4f5420524f4f5445442e3c62723e3c62723e3c7370616e20636c6173733d22746578742d677261792d34303020746578742d787320757070657263617365223e44617461204d6972726f72696e67207265717569726573205375706572757365722028535529207065726d697373696f6e7320746f2062797061737320656e6372797074696f6e2e3c2f7370616e3e", ex: "455849542053455353494f4e", ft: "433920555a4952202f2f205748415453415050203033323231323837393736", err1: "2623393838383b20494e56414c494420525341205349474e4154555245", err2: "2623393838383b2057524f4e472050524956415445204b4559"
 };
 
 function dH(h){let s='';for(let i=0;i<h.length;i+=2)s+=String.fromCharCode(parseInt(h.substr(i,2),16));return s}
 function showError(m){const p=document.getElementById('error-popup');p.querySelector('span').innerHTML=m;p.classList.add('show');setTimeout(()=>{p.classList.remove('show')},3000)}
 
 window.onload=()=>{
-    document.getElementById('h-t1').innerText=dH(_H.t1);
-    document.getElementById('h-st').innerText=dH(_H.st);
-    document.getElementById('t1').placeholder=dH(_H.ph1);
-    document.getElementById('t2').placeholder=dH(_H.ph2);
-    document.getElementById('h-b1').innerText=dH(_H.b1);
-    document.getElementById('h-sc').innerText=dH(_H.sc);
-    document.getElementById('h-ld').innerText=dH(_H.ld);
-    document.getElementById('h-r1').innerText=dH(_H.r1);
-    document.getElementById('rsa').placeholder=dH(_H.ph3);
-    document.getElementById('h-b2').innerText=dH(_H.b2);
-    document.getElementById('h-lk').innerHTML=dH(_H.lk);
-    document.getElementById('vip').placeholder=dH(_H.ph4);
-    document.getElementById('h-b3').innerText=dH(_H.b3);
-    document.getElementById('h-ft').innerText=dH(_H.ft);
-    document.getElementById('h-e1').innerText=dH(_H.e1);
-    document.getElementById('h-e2').innerHTML=dH(_H.e2);
+    document.getElementById('h-t1').innerText=dH(_H.t1); document.getElementById('h-st').innerText=dH(_H.st);
+    document.getElementById('t1').placeholder=dH(_H.ph1); document.getElementById('t2').placeholder=dH(_H.ph2);
+    document.getElementById('h-b1').innerText=dH(_H.b1); document.getElementById('h-sc').innerText=dH(_H.sc);
+    document.getElementById('h-ld').innerText=dH(_H.ld); document.getElementById('h-r1').innerText=dH(_H.r1);
+    document.getElementById('rsa').placeholder=dH(_H.ph3); document.getElementById('h-b2').innerText=dH(_H.b2);
+    document.getElementById('h-lk').innerHTML=dH(_H.lk); document.getElementById('vip').placeholder=dH(_H.ph4);
+    document.getElementById('h-b3').innerText=dH(_H.b3); document.getElementById('h-ft').innerText=dH(_H.ft);
+    document.getElementById('h-e1').innerText=dH(_H.e1); document.getElementById('h-e2').innerHTML=dH(_H.e2);
     document.getElementById('h-ex').innerText=dH(_H.ex);
 };
 
 function triggerLoad(n){
-    if(n===4){
-        if(!document.getElementById('rsa').value.includes(RSA_START)){showError(dH(_H.err1));return}
-    }
-    if(n===5){
-        // Precise String Comparison
-        let inputVal = document.getElementById('vip').value.trim();
-        if(inputVal !== MASTER_KEY){
-            showError(dH(_H.err2));
-            return;
-        }
-    }
-    if(n===2 && !document.getElementById('t1').value) return;
+    if(n===4 && !document.getElementById('rsa').value.includes(RSA_START)){showError(dH(_H.err1));return}
+    if(n===5 && document.getElementById('vip').value.trim() !== MASTER_KEY){showError(dH(_H.err2));return}
+    if(n===2 && !document.getElementById('t1').value)return;
     const l=document.getElementById('global-loader');l.style.display='flex';
-    setTimeout(()=>{l.style.display='none';nav(n);if(n===2)startScan()},1800);
+    setTimeout(()=>{l.style.display='none';nav(n);if(n===2)startScan();if(n===5)runTerminal()},1800);
 }
 
 function nav(s){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById('p'+s).classList.add('active')}
 function startScan(){let p=0;const i=setInterval(()=>{if(p<100){p+=5;document.getElementById('ptext').innerText=p+"%"}else{clearInterval(i);setTimeout(()=>triggerLoad(3),800)}},100)}
+
+function runTerminal(){
+    const term = document.getElementById('terminal');
+    const num = document.getElementById('t1').value;
+    const lines = [
+        `[#] Initializing exploit on ${num}...`,
+        `[#] Bypassing WhatsApp SHA-256 Auth...`,
+        `[#] Connection established with Node-99`,
+        `[#] Dumping database tables...`,
+        `[#] Decrypting msg_store.db.crypt14...`,
+        `[#] Media cache intercepted: 1.4GB`,
+        `[#] Injecting remote listener...`,
+        `[#] FINALIZING SESSION...`
+    ];
+    
+    let idx = 0;
+    const i = setInterval(()=>{
+        if(idx < lines.length){
+            const p = document.createElement('span');
+            p.className = 'term-line';
+            p.innerText = lines[idx];
+            term.appendChild(p);
+            term.scrollTop = term.scrollHeight;
+            idx++;
+        } else {
+            clearInterval(i);
+            setTimeout(()=>{
+                const s = document.createElement('span');
+                s.className = 'term-success';
+                s.innerText = "Hacked Successful ✅";
+                term.appendChild(s);
+                setTimeout(()=>showFinalError(), 2000);
+            }, 1000);
+        }
+    }, 800);
+}
+
+function showFinalError(){
+    document.getElementById('terminal').style.display = 'none';
+    document.getElementById('err-box').style.display = 'flex';
+    document.getElementById('final-card').style.background = 'rgba(139, 0, 0, 0.2)';
+    document.getElementById('final-card').style.borderColor = '#ff003c';
+}
 </script></body></html>
